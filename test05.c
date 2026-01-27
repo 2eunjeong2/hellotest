@@ -13,25 +13,30 @@
 //#메뉴를 선택하세요 : 2 (Enter)
 //선택된 메뉴는 2번입니다.
 
-int dicp_menu(int sel_menu);
+int dicp_menu(void);
 
 
 int main(void)
 {
-	int sel = 0;					// 변수 초기화
-	char sel_menu;					// 입력 받은 메뉴를 저장할 변수
+	int sel;
 
-	printf("메뉴를 선택하세요 : ");
-	scanf("%s", &sel_menu);
-	
-	sel = dicp_menu(sel_menu);
+	sel = dicp_menu();
 
-	printf("선택된 메뉴는 %d번 입니다.\n", sel_menu);
+	printf("선택된 메뉴는 %d번 입니다.\n", sel);
 
 	return 0;
 }
 
-int dicp_menu(int sel_menu)
+int dicp_menu(void)
 {
-	
+	int menu = 0;
+
+	printf("1. 볶음짬뽕\n");
+	printf("2. 콩나물국밥\n");
+	printf("3. 바지락칼국수\n");
+
+	printf("메뉴를 선택하세요 : ");
+	scanf("%d", &menu);
+
+	return menu;
 }

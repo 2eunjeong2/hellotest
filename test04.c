@@ -22,19 +22,20 @@ int main(void)
 	int speed = 0;							// 속력 변수
 	double time = 0;						// 시간으로 변환할 변수
 
-	int hour, min, sec = 0;					// 시간을 저장할 변수
+	int hour, min;							// 시간, 분, 초를 저장할 변수
+	double sec = 0;							
 
 	printf("거리와 속력을 입력하세요 : ");
 	scanf("%d%d", &distance, &speed);
 
-	time = (double)distance / (double)speed;
-	hour = (int)time;
-	time = (time - hour) * 60;
-	min = (int)time;
+	time = (double)distance / (double)speed;		
+	hour = (int)time;							
+	time = (time - hour) * 60;					
+	min = (int)time;							
 	time = (time - min) * 60;
 	sec = time;
 
-	printf("%.3lf", time);
+	printf("소요 시간은 %d시간 %d분 %.3lf초 입니다.", hour, min, sec);
 
 	return 0;
 }

@@ -10,28 +10,33 @@
 
 // 실행결과 : 소수가 아닙니다.
 
-int prime_check(int inum);
+int prime_check(int inum);				// 소수인지 아닌지 판별하는 함수 선언
 
 int main(void)
 {
-	int prime_num = 32767;
+	int prime_num = 32767;				// 변수 선언
 
-	
+	if (prime_check(prime_num) == 1)
+	{
+		printf("소수입니다.\n");
+	}
+	else
+	{
+		printf("소수가 아닙니다.\n");
+	}
 
 	return 0;
 }
 
-int prime_check(int inum)
+int prime_check(int inum)				// 소수인지 아닌지 판별하는 함수 작성
 {
-	int i = 0;
-
-	for (i = 2; i < inum; i++)
+	for (int i = 2; i < inum; i++)		// 2부터 i가 인수(inum)가 될 때까지 i를 증가
 	{
-		if (inum % i == 0)
+		if (inum % i == 0)				// 만약 인수(inum)를 i로 나눴을 때 나머지가 0이면
 		{
-			
+			return 0;					// 0(False)을 반환 = 소수가 아니다.
 		}
 	}
-		
-
+	
+	return 1;							// 기본 값 1(True)을 반환 = 소수가 맞다.
 }

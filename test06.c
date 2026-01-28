@@ -1,10 +1,10 @@
-#define _CRT_SECURE_NO_WARNINGS
+ï»¿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-// ¿¬½À¹®Á¦ 1-6
+// ì—°ìŠµë¬¸ì œ 1-6
 
-// ºóÄ­ÀÌ Æ÷ÇÔµÈ ¹®ÀÚ¿­ "Be Happy!"¸¦ ÀúÀåÇÒ °¡Àå ÀÛÀº charÇü ¹è¿­À» ¼±¾ðÇÏ°í
-// Å°º¸µå·ÎºÎÅÍ ÀÔ·ÂÇÏ´Â ÄÚµå¸¦ ÀÛ¼ºÇÕ´Ï´Ù.
+// ë¹ˆì¹¸ì´ í¬í•¨ëœ ë¬¸ìžì—´ "Be Happy!"ë¥¼ ì €ìž¥í•  ê°€ìž¥ ìž‘ì€ charí˜• ë°°ì—´ì„ ì„ ì–¸í•˜ê³ 
+// í‚¤ë³´ë“œë¡œë¶€í„° ìž…ë ¥í•˜ëŠ” ì½”ë“œë¥¼ ìž‘ì„±í•©ë‹ˆë‹¤.
 
 int main(void)
 {
@@ -12,4 +12,10 @@ int main(void)
 	gets(str);
 
 	return 0;
+}
+
+for (int i = 1; i < 5; i++) {
+    if (numbers[i] > max) {
+        max = numbers[i];
+    }
 }

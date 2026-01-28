@@ -13,22 +13,38 @@
 
 int main(void)
 {
-	int scores[5];
-	int i = 0;
+	int scores[5];						// 심사위원 점수를 저장할 배열 선언
+	int i = 0;							// 반복 수행을 위한 변수
+	double total = 0;					// 합계를 저장할 변수
 
 	printf("5명 심사위원의 점수 입력 : ");
 
-	for (i = 0; i < 5; i++)
+
+	// 심사 위원 점수 입력 받고 배열에 저장
+
+	for (i = 0; i < 5; i++)				
 	{
 		scanf("%d", &scores[i]);
 	}
 
 	printf("유효점수 : ");
 
+	// 심사 위원 점수 출력하기
+
+	for (i = 0; i < 5; i++)				
+	{
+		printf("%d ", scores[i]);
+	}
+
+	printf("\n");
+
+	// 평균 값 구하기
 	for (i = 0; i < 5; i++)
 	{
-		printf("%5d", scores[i]);
+		total += scores[i];
 	}
+
+	printf("평균 : %.1lf", total / 5);	//합계를 구하고 5를 나눈 평균값을 출력
 
 	return 0;
 }

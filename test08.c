@@ -24,19 +24,24 @@ int main(void)
 {
 	int lotto_num[6] = { 0 };
 	int i = 0;
-
 	
+
 
 	for (i = 0; i < 6; i++)
 	{
 		printf("로또 번호를 입력하세요.(1부터 45까지) : ");
 		scanf("%d", &lotto_num[i]);
-		if (i == lotto_num[i])
+
+		for (int j = 0; j < i; j++)
 		{
-			printf("같은 번호가 있습니다.!\n");
-			continue;
+			if (lotto_num[i] == lotto_num[j])
+			{
+				printf("같은 번호가 있습니다.!\n");
+				i--;
+				break;
+			}
 		}
-		
+
 	}
 
 	printf("입력된 로또 번호 : ");

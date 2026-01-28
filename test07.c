@@ -13,39 +13,57 @@
 
 int main(void)
 {
-	int scores[5];						// 심사위원 점수를 저장할 배열 선언
-	int i = 0;							// 반복 수행을 위한 변수
-	double total = 0;					// 합계를 저장할 변수
+	int score[5];
+	double total = 0;	// 합계를 저장할 변수
+
 
 	printf("5명 심사위원의 점수 입력 : ");
 
-
 	// 심사 위원 점수 입력 받고 배열에 저장
-
-	for (i = 0; i < 5; i++)				
+	for (int i = 0; i < 5; i++)
 	{
-		scanf("%d", &scores[i]);
+		scanf("%d", &score[i]);
 	}
 
 	printf("유효점수 : ");
 
-	// 심사 위원 점수 출력하기
+	// max min 값 구하기
+	int max = score[0];
+	int min = score[0];
 
-	for (i = 0; i < 5; i++)				
+	// 더 큰 값을 발견하면 요소를 최댓값으로 교체하는 알고리즘
+	for (int i = 0; i < 5; i++)
 	{
-		printf("%d ", scores[i]);
+		if (max < score[i])
+		{
+			max = score[i];
+		}
+	}
+	// 더 작은 값을 발견하면 요소를 최솟값으로 교체하는 알고리즘
+	for (int i = 0; i < 5; i++)
+	{
+		if (min > score[i])
+		{
+			min = score[i];
+		}
 	}
 
-	printf("\n");
-
+	// max min 값을 뺀 유효 점수
+	for (int i = 0; i < 5; i++)
+	{
+		if (score[i] != max && score[i] != min)
+		{
+			total = total + score[i];
+			printf("%d ", score[i]);
+		}
+		
+	}
+	
 	// 평균 값 구하기
-	for (i = 0; i < 5; i++)
-	{
-		total += scores[i];
-	}
+	double avg = total / 3;
 
-	printf("평균 : %.1lf", total / 5);	//합계를 구하고 5를 나눈 평균값을 출력
+	printf("\n평균 : %.1lf", avg);
+
 
 	return 0;
 }
-

@@ -11,11 +11,13 @@ int main(void)
 	// 메뉴, 가격, 결제 수단 배열 
 	char* menus[] = { "카다이프","피스타치오", "초콜릿", "버터" };
 	int* prices[] = { 5000, 8000, 3000, 4000 }; 
-	char* payments[] = {"현금", "카드"};
 
 	// 선택 변수
-	char selec_menu[] = "";
+	int selec_menu = 0;
 	char selec_pay[20] = "";
+
+	// 금액 변수
+	int input_cash = 0;
 
 	// 메뉴 출력
 	printf("========== 재료 ==========\n");
@@ -28,7 +30,9 @@ int main(void)
 
 	// 메뉴 선택
 	printf("상품을 선택해주세요 : ");
-	scanf("%s", &selec_menu);
+	scanf("%d", &selec_menu);
+	
+	printf("\n[  %s ]를 선택하셨습니다. %d원입니다.\n", menus[selec_menu - 1], prices[selec_menu - 1]);
 
 	printf("\n");
 
@@ -38,14 +42,41 @@ int main(void)
 		scanf("%s", &selec_pay);
 
 		// 수단 별 출력 문구
+		// 현금
 		if (strcmp(selec_pay, "현금") == 0)
 		{
-			printf("%d원을 넣어주세요.\n", prices[0]);
+			// 입금액 확인
+			int price = prices[selec_menu - 1];	
+			int cash = 0;
+			do {
+				printf("현금을 넣어주세요. : ");
+				scanf("%d", &input_cash);
+
+				cash += input_cash;
+
+				if (cash < price)
+				{
+					printf("%d원 부족합니다.\n", price - cash);
+					continue;
+				}
+				else if (cash >= price)
+				{
+					printf("결제 완료 되었습니다.\n");
+
+				}
+
+			} while (cash < price);
+			
+			printf("거스름 돈은 %d원 입니다.", cash - price);
 		}
+
+		// 카드
 		else if (strcmp(selec_pay, "카드") == 0)
 		{
 			printf("카드를 리더기에 꽂아주세요.\n");
 		}
+
+		// 재선택
 		else
 		{
 			printf("다시 선택해주세요.\n");
@@ -54,7 +85,7 @@ int main(void)
 		break;
 	}
 
-
+	
 
 	
 	return 0;
